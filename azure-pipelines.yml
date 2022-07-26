@@ -22,16 +22,6 @@ steps:
     goals: 'package'
     #options: 'package -Dmaven.test.skip'
     options: '-DskipTests=true'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(agent.builddirectory)'
-    Contents: '**/*.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'Warfile'
-    publishLocation: 'Container'
 - task: Docker@2
   inputs:
     containerRegistry: 'dineshreg'
