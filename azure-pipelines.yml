@@ -30,3 +30,9 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Warfile'
     publishLocation: 'Container'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'dineshreg'
+    repository: 'dineshreg'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
